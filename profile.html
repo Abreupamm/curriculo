@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamela Abreu - Currículo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
+        
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2A2D3E;
+            --light: #F7F9FC;
+            --accent: #20C997;
+            --gray: #8C8C8C;
+            --light-gray: #E5E5E5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .resume {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+        
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: var(--dark);
+            color: white;
+            padding: 2.5rem 2rem;
+        }
+        
+        .main-content {
+            padding: 2.5rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 0.7rem;
+            font-size: 1.2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .sidebar .section-title {
+            color: var(--accent);
+        }
+        
+        .sidebar .section-title::after {
+            background: var(--accent);
+        }
+        
+        .profile-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .language-name {
+            font-weight: 500;
+        }
+        
+        .language-level {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .education-school {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .education-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.1);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+        }
+        
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .timeline-description {
+            font-size: 0.9rem;
+            margin-bottom: 0.7rem;
+        }
+        
+        .tags-main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag-main {
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tag-main:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(108, 99, 255, 0.1) 0%, rgba(108, 99, 255, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+        
+        .highlight::before {
+            content: '\f005';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .resume {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .section {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <div class="header">
+            <div class="header-content">
+               <img src="pam.jpeg" class="profile-img"></img>
+                <div class="header-text">
+                    <h1 class="name">PAMELA ABREU</h1>
+                    <p class="title">Desenvolvedora Front-End</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>abreupamm@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>linkedin.com/in/pamela-silva-de-abreu</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/Abreupamm</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Magé, Rio de Janeiro, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-user"></i> Perfil</h2>
+                    <p class="profile-text">Desenvolvedora Front-End com experiência em projetos internacionais, especializada na migração de sistemas legados para stacks modernas. Comunicativa e adaptável a ambientes multiculturais. Mãe dedicada que equilibra carreira e família com resiliência.</p>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-code"></i> Habilidades Técnicas</h2>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-star"></i> Front-End Moderno</h3>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Next.js</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">SASS</span>
+                            <span class="tag">Styled Components</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cogs"></i> Tecnologias Legado</h3>
+                        <div class="tags">
+                            <span class="tag">jQuery</span>
+                            <span class="tag">.NET MVC</span>
+                            <span class="tag">AJAX</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Ferramentas & Outras</h3>
+                        <div class="tags">
+                            <span class="tag">Liferay</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GA4</span>
+                            <span class="tag">GTM</span>
+                            <span class="tag">Jest</span>
+                            <span class="tag">React Testing Library</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-language"></i> Idiomas</h2>
+                    <div class="language-item">
+                        <span class="language-name">Português</span>
+                        <span class="language-level">Nativo</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Espanhol</span>
+                        <span class="language-level">Intermediário</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Inglês</span>
+                        <span class="language-level">Técnico</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-certificate"></i> Certificações</h2>
+                    <div class="education-item">
+                        <div class="education-degree">AWS re/Start Graduate</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-degree">Full Stack Developer</div>
+                        <div class="education-school">Trybe</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-degree">Módulo Ciência da Computação</div>
+                        <div class="education-school">Trybe</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Abr 2024 - Presente</div>
+                            <div class="timeline-title">Desenvolvedora Front End</div>
+                            <div class="timeline-subtitle">OVERLABS | VRIO - Directv</div>
+                            <p class="timeline-description">Atuação em projeto internacional para 7 países, migração de sistema legado (.NET MVC/jQuery) para React com Design System próprio. Implementação de tagueamento com GA4 e desenvolvimento de novas funcionalidades.</p>
+                            <div class="tags-main">
+                                <span class="tag-main">React</span>
+                                <span class="tag-main">Next.js</span>
+                                <span class="tag-main">Tailwind CSS</span>
+                                <span class="tag-main">GA4</span>
+                                <span class="tag-main">.NET MVC</span>
+                                <span class="tag-main">jQuery</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mar 2023 - Mar 2024</div>
+                            <div class="timeline-title">Desenvolvedora Front End</div>
+                            <div class="timeline-subtitle">INFOBASE IT | VRIO - SKY</div>
+                            <p class="timeline-description">Migração de sistemas legados para React/Next.js, desenvolvimento de componentes reutilizáveis e sistema interno com DaisyUI. Gestão de conteúdo com Liferay e implementação de tagueamento com GTM.</p>
+                            <div class="tags-main">
+                                <span class="tag-main">React</span>
+                                <span class="tag-main">Next.js</span>
+                                <span class="tag-main">Liferay</span>
+                                <span class="tag-main">GTM</span>
+                                <span class="tag-main">DaisyUI</span>
+                                <span class="tag-main">jQuery</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mar 2023 - Jan 2024</div>
+                            <div class="timeline-title">Desenvolvedora Full Stack</div>
+                            <div class="timeline-subtitle">Tizza Tecnologia</div>
+                            <p class="timeline-description">Desenvolvimento de plugin para AWS S3, criação de soluções no-code com Bubble.io e integração de microserviços. Administração de bancos relacionais e documentação de requisitos.</p>
+                            <div class="tags-main">
+                                <span class="tag-main">AWS</span>
+                                <span class="tag-main">Bubble.io</span>
+                                <span class="tag-main">Node.js</span>
+                                <span class="tag-main">Microserviços</span>
+                                <span class="tag-main">S3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024 - 2027</div>
+                            <div class="timeline-title">Análise e Desenvolvimento de Sistemas</div>
+                            <div class="timeline-subtitle">Estácio</div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022 - 2023</div>
+                            <div class="timeline-title">Desenvolvimento Web Full Stack</div>
+                            <div class="timeline-subtitle">Trybe</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Destaque Profissional:</strong>  Progressão rápida de estagiária a desenvolvedora plena em 2 anos, com experiência internacional em projetos para 7 países da América Latina.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Currículo atualizado em <span id="current-date"></span> | Desenvolvido com HTML5 e CSS3
+        </div>
+    </div>
+
+    <script>
+        // Adiciona a data atual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR');
+        
+        // Efeito de hover nas tags
+        document.querySelectorAll('.tag, .tag-main').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
