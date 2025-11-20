@@ -68,6 +68,7 @@
             font-size: 3rem;
             color: var(--primary);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
         
         .header-text {
@@ -101,10 +102,28 @@
             align-items: center;
             gap: 0.7rem;
             font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
         
         .contact-item i {
             font-size: 1.1rem;
+        }
+        
+        .social-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
         }
         
         .container {
@@ -398,32 +417,42 @@
         .section {
             animation: fadeIn 0.8s ease-out;
         }
+        
+        .clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .clickable:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
     <div class="resume">
         <div class="header">
             <div class="header-content">
-               <img src="pam.jpeg" class="profile-img"></img>
+               <img src="pam.jpeg" class="profile-img" alt="Pamela Abreu">
                 <div class="header-text">
                     <h1 class="name">PAMELA ABREU</h1>
                     <p class="title">Desenvolvedora Front-End</p>
                     <div class="contact-info">
-                        <div class="contact-item">
+                        <div class="contact-item" onclick="window.open('mailto:abreupamm@gmail.com', '_blank')">
                             <i class="fas fa-envelope"></i>
                             <span>abreupamm@gmail.com</span>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" onclick="window.open('https://linkedin.com/in/pamela-silva-de-abreu', '_blank')">
                             <i class="fas fa-globe"></i>
                             <span>linkedin.com/in/pamela-silva-de-abreu</span>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" onclick="window.open('https://github.com/Abreupamm', '_blank')">
                             <i class="fab fa-github"></i>
                             <span>github.com/Abreupamm</span>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" onclick="window.open('https://maps.google.com/?q=Magé,Rio+de+Janeiro,Brasil', '_blank')">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Magé, Rio de Janeiro, Brasil</span>
+                            <span>São Gonçalo, Rio de Janeiro, Brasil</span>
                         </div>
                     </div>
                 </div>
@@ -601,6 +630,44 @@
                 this.style.transform = 'translateY(0)';
             });
         });
+
+        // Funções para abrir redes sociais
+        function openEmail() {
+            window.open('mailto:abreupamm@gmail.com', '_blank');
+        }
+
+        function openLinkedIn() {
+            window.open('https://linkedin.com/in/pamela-silva-de-abreu', '_blank');
+        }
+
+        function openGitHub() {
+            window.open('https://github.com/Abreupamm', '_blank');
+        }
+
+        function openLocation() {
+            window.open('https://maps.google.com/?q=São+Gonçalo,Rio+de+Janeiro,Brasil', '_blank');
+        }
+
+        // Adiciona event listeners para os elementos clicáveis
+        document.addEventListener('DOMContentLoaded', function() {
+            // Email
+            document.querySelector('.contact-item:nth-child(1)').addEventListener('click', openEmail);
+            
+            // LinkedIn
+            document.querySelector('.contact-item:nth-child(2)').addEventListener('click', openLinkedIn);
+            
+            // GitHub
+            document.querySelector('.contact-item:nth-child(3)').addEventListener('click', openGitHub);
+            
+            // Localização
+            document.querySelector('.contact-item:nth-child(4)').addEventListener('click', openLocation);
+        });
+
+        // Também adiciona via onclick como fallback
+        document.querySelector('.contact-item:nth-child(1)').setAttribute('onclick', 'openEmail()');
+        document.querySelector('.contact-item:nth-child(2)').setAttribute('onclick', 'openLinkedIn()');
+        document.querySelector('.contact-item:nth-child(3)').setAttribute('onclick', 'openGitHub()');
+        document.querySelector('.contact-item:nth-child(4)').setAttribute('onclick', 'openLocation()');
     </script>
 </body>
 </html>
